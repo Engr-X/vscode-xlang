@@ -1,0 +1,35 @@
+{
+    "name": "XLang",
+    "scopeName": "source.xlang",
+    "patterns": [
+        {
+            "name": "comment.line.double-slash.xlang",
+            "match": "//.*$"
+        },
+        {
+            "name": "comment.block.xlang",
+            "begin": "/\\*",
+            "end": "\\*/"
+        },
+        {
+            "name": "keyword.control.xlang",
+            "match": "\\b(and|as|break|continue|elif|else|from|for|if|iff|implies|import|inv|is|loop|nand|new|niff|nimplies|nor|or|package|pass|repeat|return|shl|shr|until|ushr|while|xnor|xor)\\b"
+        },
+        {
+            "name": "storage.type.xlang",
+            "match": "\\b(class|fun|struct|val|var)\\b"
+        },
+        {
+            "name": "storage.modifier.xlang",
+            "match": "\\b(inline|intrinsic|mut|native|private|protected|public|static)\\b"
+        },
+        {
+            "name": "constant.language.null.xlang",
+            "match": "\\b(null|true|false)\\b"
+        },
+        {
+            "name": "support.type.primitive.xlang",
+            "match": "\\b(bool|byte|char|short|int|long|float|double|pointer)\\b"
+        }
+    ]
+}

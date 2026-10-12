@@ -1,0 +1,65 @@
+{
+    "name": "vscode-xlang",
+    "displayName": "XLang",
+    "description": "Language support and development tools for XLang.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.140.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./out/src/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "xlang",
+                "aliases": [
+                    "xlang"
+                ],
+                "extensions": [
+                    ".xlang",
+                    ".xl",
+                    ".x"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "xlang",
+                "scopeName": "source.xlang",
+                "path": "./syntaxes/xlang.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "compile:test": "tsc -p tsconfig.test.json",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.10",
+        "@types/node": "24.x",
+        "@types/vscode": "^1.140.0",
+        "@vscode/test-cli": "^0.0.15",
+        "@vscode/test-electron": "^3.0.0",
+        "@vscode/vsce": "^4.0.0",
+        "eslint": "^10.5.0",
+        "mocha": "^12.0.3",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.61.1"
+    },
+    "overrides": {
+        "diff": "^8.0.4",
+        "serialize-javascript": "^7.0.6"
+    },
+    "allowScripts": {
+        "@vscode/vsce-sign@2.1.0": true
+    }
+}
