@@ -2,3 +2,5 @@ node_modules
 out
 .vscode
 .vscode-test
+vscode-xlang-0.0.1.vsix
+./vsc-extension-quickstart.md
