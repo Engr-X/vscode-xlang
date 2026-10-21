@@ -3,13 +3,81 @@
     "scopeName": "source.xlang",
     "patterns": [
         {
-            "name": "comment.line.double-slash.xlang",
-            "match": "//.*$"
+            "name": "XLang",
+            "scopeName": "source.xlang",
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.xlang",
+                    "begin": "//",
+                    "end": "$",
+                    "patterns": [
+                        {
+                            "include": "#commentTags"
+                        }
+                    ]
+                },
+                {
+                    "name": "comment.block.xlang",
+                    "begin": "/\\*",
+                    "end": "\\*/",
+                    "patterns": [
+                        {
+                            "include": "#commentTags"
+                        }
+                    ]
+                }
+            ],
+            "repository": {
+                "commentTags": {
+                    "name": "storage.type.annotation.xlang",
+                    "match": "@(author|version|since|param|return|throws|exception|see|deprecated|hidden|apiNote|implSpec|implNote|info|note|warning|todo|example|internal|experimental|security)\\b"
+                }
+            }
         },
         {
-            "name": "comment.block.xlang",
-            "begin": "/\\*",
-            "end": "\\*/"
+            "name": "string.quoted.double.xlang",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.xlang",
+                    "match": "\\\\."
+                },
+                {
+                    "name": "meta.interpolation.xlang",
+                    "match": "(\\{)([A-Za-z_][A-Za-z0-9_]*)(\\})",
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.section.interpolation.begin.xlang"
+                        },
+                        "2": {
+                            "name": "variable.other.interpolation.xlang"
+                        },
+                        "3": {
+                            "name": "punctuation.section.interpolation.end.xlang"
+                        }
+                    }
+                },
+                {
+                    "name": "constant.character.escape.xlang",
+                    "match": "%%"
+                },
+                {
+                    "name": "variable.parameter.format.xlang",
+                    "match": "%[-+# 0]*\\d*(?:\\.\\d+)?[sdifuxXocFeEgG]"
+                }
+            ]
+        },
+        {
+            "name": "string.quoted.single.xlang",
+            "begin": "'",
+            "end": "'",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.xlang",
+                    "match": "\\\\."
+                }
+            ]
         },
         {
             "name": "keyword.control.xlang",
