@@ -3,6 +3,10 @@
     "displayName": "XLang",
     "description": "Language support and development tools for XLang.",
     "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Engr-X/vscode-xlang.git"
+    },
     "engines": {
         "vscode": "^1.140.0"
     },
@@ -41,7 +45,8 @@
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
         "lint": "eslint src",
-        "test": "vscode-test"
+        "test": "vscode-test",
+        "package:vsix": "node -e \"require('fs').mkdirSync('build', { recursive: true })\" && vsce package --out build/%npm_package_name%-%npm_package_version%.vsix"
     },
     "devDependencies": {
         "@types/mocha": "^10.0.10",
